@@ -1,33 +1,33 @@
 # Projeto Integrador II
 
-## Sistema de Controle de itens perdidos em ambiente escolar 
+## Sistema de Controle de Itens Perdidos e Encontrados
 
 ### Sobre o projeto
 
-Este projeto tem como objetivo desenvolver uma solução para auxiliar no controle de itens perdidas dentro do colégio.
+Este projeto tem como objetivo desenvolver uma solução para auxiliar no controle de itens perdidos e encontrados dentro da escola.
 
-A proposta é facilitar o registro, a identificação e a localização de itens encontradas, ajudando os alunos e funcionários a recuperarem seus objetos perdidos.
+A proposta é facilitar o registro, a identificação e a localização de objetos encontrados, ajudando alunos, professores e funcionários a recuperarem seus pertences.
 
 ### Problema
 
-É comum que alunos percam ou esqueçam seus itens nas dependências do colégio. Quando um item é encontrada, pode ser difícil identificar o seu dono e devolvê-la corretamente.
+É comum que alunos e outras pessoas que frequentam a escola percam ou esqueçam seus objetos nas dependências da instituição. Quando um item é encontrado, pode ser difícil identificar seu proprietário e realizar a devolução.
 
 ### Objetivo
 
-Criar um sistema que permita registrar os itens encontrados e facilite a busca e a devolução aos seus respectivos donos.
+Criar um sistema que permita registrar itens encontrados na escola e facilite a busca e a identificação dos seus possíveis proprietários, contribuindo para a devolução dos objetos perdidos.
 
 ### Público-alvo
 
-- Alunos
-- Professores
-- Funcionários do colégio
+- Alunos;
+- Professores;
+- Funcionários da escola.
 
 ### Funcionalidades previstas
 
-- Cadastro de itens encontradas;
+- Cadastro de itens encontrados;
 - Registro das características dos itens;
-- Consulta de itens cadastradas;
-- Busca por características;
+- Consulta de itens cadastrados;
+- Busca por características do item;
 - Identificação do possível proprietário;
 - Registro da devolução do item.
 
