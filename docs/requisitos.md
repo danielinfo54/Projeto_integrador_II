@@ -2,47 +2,47 @@
 
 ## 1. Introdução
 
-O sistema tem como objetivo auxiliar no controle de garrafinhas perdidas dentro do colégio, facilitando o registro, a identificação e a devolução dos objetos encontrados.
+O sistema tem como objetivo auxiliar no controle de itens perdidos e encontrados dentro da escola, facilitando o registro, a identificação e a devolução dos objetos encontrados.
 
 ## 2. Problema
 
-Alunos podem perder ou esquecer suas garrafinhas nas dependências do colégio. Quando uma garrafinha é encontrada, pode ser difícil identificar seu proprietário e realizar a devolução.
+Alunos, professores e funcionários podem perder ou esquecer objetos nas dependências da escola. Quando um item é encontrado, pode ser difícil identificar seu proprietário e realizar a devolução.
 
 ## 3. Objetivo do sistema
 
-Desenvolver um sistema que permita registrar garrafinhas encontradas e facilitar a busca por suas características, contribuindo para que os objetos sejam devolvidos aos seus respectivos donos.
+Desenvolver um sistema que permita registrar itens encontrados e facilitar a busca por suas características, contribuindo para que os objetos sejam devolvidos aos seus respectivos proprietários.
 
 ## 4. Público-alvo
 
 - Alunos;
 - Professores;
-- Funcionários do colégio.
+- Funcionários da escola.
 
 ## 5. Requisitos Funcionais
 
-### RF01 - Cadastrar garrafinha encontrada
+### RF01 - Cadastrar item encontrado
 
-O sistema deve permitir o cadastro de uma garrafinha encontrada.
+O sistema deve permitir o cadastro de um item encontrado na escola.
 
 ### RF02 - Registrar características
 
-O sistema deve permitir registrar características da garrafinha, como cor, marca, modelo e outras informações que auxiliem na identificação.
+O sistema deve permitir registrar características do item, como nome, categoria, cor, marca, modelo e outras informações que auxiliem na identificação.
 
-### RF03 - Consultar garrafinhas
+### RF03 - Consultar itens
 
-O sistema deve permitir consultar as garrafinhas cadastradas.
+O sistema deve permitir consultar os itens cadastrados.
 
-### RF04 - Buscar garrafinha
+### RF04 - Buscar item
 
-O sistema deve permitir realizar buscas utilizando características da garrafinha.
+O sistema deve permitir realizar buscas utilizando características do item.
 
 ### RF05 - Identificar proprietário
 
-O sistema deve permitir registrar e consultar informações que possam auxiliar na identificação do proprietário.
+O sistema deve permitir registrar e consultar informações que possam auxiliar na identificação do proprietário do item.
 
 ### RF06 - Registrar devolução
 
-O sistema deve permitir registrar quando uma garrafinha for devolvida ao seu proprietário.
+O sistema deve permitir registrar quando um item for devolvido ao seu proprietário.
 
 ## 6. Requisitos Não Funcionais
 
@@ -52,7 +52,7 @@ O sistema deve possuir uma interface simples e fácil de utilizar.
 
 ### RNF02 - Organização
 
-As informações das garrafinhas devem ser apresentadas de forma organizada.
+As informações dos itens devem ser apresentadas de forma organizada.
 
 ### RNF03 - Acessibilidade
 
@@ -60,4 +60,4 @@ O sistema deve ser desenvolvido de forma que suas funcionalidades sejam compreen
 
 ## 7. Considerações
 
-O sistema será desenvolvido como parte do Projeto Integrador II e terá como finalidade auxiliar o colégio no gerenciamento de garrafinhas perdidas e encontradas.
+O sistema será desenvolvido como parte do Projeto Integrador II e terá como finalidade auxiliar a escola no gerenciamento de itens perdidos e encontrados.
