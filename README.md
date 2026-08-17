@@ -1,6 +1,6 @@
 # Projeto Integrador II
 
-## Sistema de Controle de itens  Perdidas em ambiente escolar 
+## Sistema de Controle de itens perdidos em ambiente escolar 
 
 ### Sobre o projeto
 
