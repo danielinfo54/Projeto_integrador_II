@@ -1,20 +1,20 @@
 # Projeto Integrador II
 
-## Sistema de Controle de Garrafinhas Perdidas
+## Sistema de Controle de itens  Perdidas em ambiente escolar 
 
 ### Sobre o projeto
 
-Este projeto tem como objetivo desenvolver uma solução para auxiliar no controle de garrafinhas perdidas dentro do colégio.
+Este projeto tem como objetivo desenvolver uma solução para auxiliar no controle de itens perdidas dentro do colégio.
 
-A proposta é facilitar o registro, a identificação e a localização de garrafinhas encontradas, ajudando os alunos e funcionários a recuperarem seus objetos perdidos.
+A proposta é facilitar o registro, a identificação e a localização de itens encontradas, ajudando os alunos e funcionários a recuperarem seus objetos perdidos.
 
 ### Problema
 
-É comum que alunos percam ou esqueçam suas garrafinhas nas dependências do colégio. Quando uma garrafinha é encontrada, pode ser difícil identificar o seu dono e devolvê-la corretamente.
+É comum que alunos percam ou esqueçam seus itens nas dependências do colégio. Quando um item é encontrada, pode ser difícil identificar o seu dono e devolvê-la corretamente.
 
 ### Objetivo
 
-Criar um sistema que permita registrar as garrafinhas encontradas e facilite a busca e a devolução aos seus respectivos donos.
+Criar um sistema que permita registrar os itens encontrados e facilite a busca e a devolução aos seus respectivos donos.
 
 ### Público-alvo
 
@@ -24,12 +24,12 @@ Criar um sistema que permita registrar as garrafinhas encontradas e facilite a b
 
 ### Funcionalidades previstas
 
-- Cadastro de garrafinhas encontradas;
-- Registro das características da garrafinha;
-- Consulta de garrafinhas cadastradas;
+- Cadastro de itens encontradas;
+- Registro das características dos itens;
+- Consulta de itens cadastradas;
 - Busca por características;
 - Identificação do possível proprietário;
-- Registro da devolução da garrafinha.
+- Registro da devolução do item.
 
 ### Projeto Integrador II
 
