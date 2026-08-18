@@ -59,6 +59,3 @@ As ocorrências poderão apresentar diferentes status:
 - Em providência;
 - Resolvida.
 
-### Projeto Integrador II
-
-Projeto desenvolvido como atividade acadêmica do Projeto Integrador II.
