@@ -58,8 +58,6 @@ flowchart TD
 
 Este segundo diagrama "abre" cada etapa do fluxo macro em ações menores e mais concretas — o tipo de detalhamento que ajuda na hora de desenhar as telas e as validações do sistema.
 
-```mermaid
-flowchart TD
     A0[Início: usuário acessa o sistema] --> A1{Já possui cadastro?}
     A1 -->|Não, e quer se identificar| A2[Cadastro rápido: nome, e-mail, perfil]
     A1 -->|Sim, faz login| A3[Login]
@@ -104,7 +102,6 @@ flowchart TD
 
 ## 2. Modelo de Banco de Dados (Diagrama ER)
 
-```mermaid
 erDiagram
     USUARIO ||--o{ OCORRENCIA : registra
     CATEGORIA ||--o{ OCORRENCIA : classifica
