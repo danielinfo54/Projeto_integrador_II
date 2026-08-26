@@ -4,9 +4,12 @@
 
 Este documento reúne o **Diagrama de Fluxo com Regras de Negócio**, o **Modelo de Banco de Dados (ER)** e a **Estrutura de Pastas** do repositório, servindo como base para a fase de modelagem e desenvolvimento do sistema.
 
+
+Link do trello : https://trello.com/b/RQppRCI5/meu-quadro-do-trello
+
 ---
 
-## 0. Diagrama de Fluxo do Processo Principal (Visão Geral)
+## Diagrama de Fluxo do Processo Principal (Visão Geral)
 
 O fluxo abaixo representa o caminho completo de uma ocorrência, desde o registro pelo usuário até a resolução final, incluindo pontos de decisão, validações, aprovações e retornos (loops de correção/acompanhamento). Este é o diagrama "macro" — a seção seguinte detalha cada uma dessas etapas passo a passo.
 
