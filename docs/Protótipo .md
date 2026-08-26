@@ -50,3 +50,40 @@ flowchart TD
 
     Q --> T([Fim])
     S --> T
+
+
+
+erDiagram
+
+    USUARIO {
+        int id_usuario PK
+        string nome
+        string identificacao
+    }
+
+    OCORRENCIA {
+        int id_ocorrencia PK
+        int id_usuario FK
+        int id_categoria FK
+        string localizacao
+        string descricao
+        date data_ocorrencia
+        string tipo_relato
+        string status
+    }
+
+    CATEGORIA {
+        int id_categoria PK
+        string nome
+    }
+
+    PROVIDENCIA {
+        int id_providencia PK
+        int id_ocorrencia FK
+        string descricao
+        date data_providencia
+    }
+
+    USUARIO ||--o{ OCORRENCIA : "registra"
+    CATEGORIA ||--o{ OCORRENCIA : "classifica"
+    OCORRENCIA ||--o{ PROVIDENCIA : "possui"
