@@ -2,7 +2,7 @@
 
 ## Sistema de Denúncias e Ocorrências Escolares
 
-O protótipo apresenta a estrutura inicial das principais telas do sistema, considerando os requisitos definidos na Etapa 1.
+Este protótipo apresenta a estrutura inicial das principais telas do sistema, com base nos requisitos definidos na Etapa 1.
 
 ## 1. Fluxo das telas
 
@@ -39,14 +39,14 @@ flowchart TD
 ├──────────────────────────────────────────────┤
 │                                              │
 │  Relate problemas e situações que precisam  │
-│  da atenção da administração escolar.        │
+│  da atenção da administração escolar.       │
 │                                              │
 │       ┌──────────────────────────┐           │
-│       │  REGISTRAR OCORRÊNCIA    │           │
+│       │   REGISTRAR OCORRÊNCIA   │           │
 │       └──────────────────────────┘           │
 │                                              │
 │       ┌──────────────────────────┐           │
-│       │ ACOMPANHAR OCORRÊNCIA    │           │
+│       │  ACOMPANHAR OCORRÊNCIA   │           │
 │       └──────────────────────────┘           │
 │                                              │
 └──────────────────────────────────────────────┘
@@ -146,7 +146,7 @@ Os status definidos para as ocorrências são:
 - Em providência;
 - Resolvida.
 
-As cores poderão ser utilizadas para facilitar a identificação visual dos estados das ocorrências:
+As cores poderão ser utilizadas para facilitar a identificação visual:
 
 - 🟢 Resolvida;
 - 🟡 Em análise;
