@@ -1,153 +1,52 @@
-# Protótipo de Telas
+# Arquitetura do Sistema
 
 ## Sistema de Denúncias e Ocorrências Escolares
 
-Este protótipo apresenta a estrutura inicial das principais telas do sistema, com base nos requisitos definidos na Etapa 1.
+## 1. Visão geral
 
-## 1. Fluxo das telas
+O Sistema de Denúncias e Ocorrências Escolares tem como objetivo oferecer um canal organizado para que alunos, professores e funcionários comuniquem problemas e situações que necessitam da atenção da administração escolar.
+
+O sistema permitirá o registro de ocorrências de forma identificada ou anônima, possibilitando também o acompanhamento do andamento das providências tomadas pela administração.
+
+---
+
+# 2. Diagrama de Fluxo e Regras de Negócio
+
+## 2.1 Fluxo principal
+
+O processo principal começa com o registro de uma ocorrência pelo usuário. Após o preenchimento das informações, a ocorrência é enviada para análise da administração escolar.
 
 ```mermaid
 flowchart TD
-    A[Tela Inicial] --> B[Registrar Ocorrência]
-    A --> C[Acompanhar Ocorrência]
+    A([Início]) --> B[Usuário acessa o sistema]
+    B --> C[Registrar ocorrência]
 
-    B --> D[Escolher tipo de relato]
-    D --> E[Selecionar categoria]
-    E --> F[Informar localização]
-    F --> G[Descrever ocorrência]
-    G --> H[Registrar data]
-    H --> I[Enviar ocorrência]
-    I --> J[Ocorrência recebida]
+    C --> D{Deseja realizar relato anônimo?}
 
-    C --> K[Informar identificação da ocorrência]
-    K --> L[Consultar status]
-    L --> M[Exibir andamento da ocorrência]
+    D -->|Sim| E[Registrar ocorrência sem identificação]
+    D -->|Não| F[Registrar ocorrência identificada]
 
-    J --> N[Área administrativa]
-    N --> O[Consultar ocorrência]
-    O --> P[Atualizar status]
-    P --> Q[Registrar providências]
-    Q --> R[Registrar resolução]
-```
+    E --> G[Selecionar categoria]
+    F --> G
 
-## 2. Tela Inicial
+    G --> H[Informar localização]
+    H --> I[Descrever ocorrência]
+    I --> J[Registrar data]
+    J --> K[Enviar ocorrência]
 
-```text
-┌──────────────────────────────────────────────┐
-│      SISTEMA DE DENÚNCIAS E OCORRÊNCIAS     │
-│                   ESCOLARES                  │
-├──────────────────────────────────────────────┤
-│                                              │
-│  Relate problemas e situações que precisam  │
-│  da atenção da administração escolar.       │
-│                                              │
-│       ┌──────────────────────────┐           │
-│       │   REGISTRAR OCORRÊNCIA   │           │
-│       └──────────────────────────┘           │
-│                                              │
-│       ┌──────────────────────────┐           │
-│       │  ACOMPANHAR OCORRÊNCIA   │           │
-│       └──────────────────────────┘           │
-│                                              │
-└──────────────────────────────────────────────┘
-```
+    K --> L[Ocorrência recebida]
+    L --> M[Administração consulta ocorrência]
+    M --> N[Ocorrência em análise]
 
-## 3. Tela de Registro de Ocorrência
+    N --> O{Necessita providências?}
 
-```text
-┌──────────────────────────────────────────────┐
-│           REGISTRAR OCORRÊNCIA               │
-├──────────────────────────────────────────────┤
-│                                              │
-│ Categoria:                                   │
-│ [ Estrutura e infraestrutura       ▼ ]       │
-│                                              │
-│ Local da ocorrência:                         │
-│ [______________________________________]     │
-│                                              │
-│ Descrição:                                   │
-│ [                                      ]     │
-│ [                                      ]     │
-│ [                                      ]     │
-│                                              │
-│ Data:                                        │
-│ [____/____/________]                         │
-│                                              │
-│ Tipo de relato:                              │
-│ ( ) Identificado    ( ) Anônimo              │
-│                                              │
-│       ┌──────────────────────────┐           │
-│       │      ENVIAR RELATO       │           │
-│       └──────────────────────────┘           │
-│                                              │
-└──────────────────────────────────────────────┘
-```
+    O -->|Sim| P[Registrar providências]
+    O -->|Não| Q[Registrar resolução]
 
-## 4. Tela de Acompanhamento
+    P --> R{Ocorrência resolvida?}
 
-```text
-┌──────────────────────────────────────────────┐
-│          ACOMPANHAR OCORRÊNCIA               │
-├──────────────────────────────────────────────┤
-│                                              │
-│ Código da ocorrência:                        │
-│ [____________________________]               │
-│                                              │
-│       ┌──────────────────────────┐           │
-│       │        CONSULTAR         │           │
-│       └──────────────────────────┘           │
-│                                              │
-│ Status:                                      │
-│                                              │
-│  ✓ Recebida                                  │
-│  ✓ Em análise                                │
-│  ○ Em providência                            │
-│  ○ Resolvida                                 │
-│                                              │
-└──────────────────────────────────────────────┘
-```
+    R -->|Sim| Q[Registrar resolução]
+    R -->|Não| S[Ocorrência não concluída]
 
-## 5. Área Administrativa
-
-```text
-┌──────────────────────────────────────────────┐
-│          ÁREA ADMINISTRATIVA                 │
-├──────────────────────────────────────────────┤
-│                                              │
-│ Ocorrências registradas:                     │
-│                                              │
-│ ┌──────────────────────────────────────────┐ │
-│ │ #001 | Segurança | Em análise            │ │
-│ ├──────────────────────────────────────────┤ │
-│ │ #002 | Estrutura | Em providência        │ │
-│ ├──────────────────────────────────────────┤ │
-│ │ #003 | Equipamentos | Resolvida          │ │
-│ └──────────────────────────────────────────┘ │
-│                                              │
-│ Status:                                      │
-│ [ Em análise ▼ ]                             │
-│                                              │
-│ Providências:                                │
-│ [______________________________________]     │
-│                                              │
-│       ┌──────────────────────────┐           │
-│       │   ATUALIZAR OCORRÊNCIA   │           │
-│       └──────────────────────────┘           │
-│                                              │
-└──────────────────────────────────────────────┘
-```
-
-## 6. Status das ocorrências
-
-Os status definidos para as ocorrências são:
-
-- Recebida;
-- Em análise;
-- Em providência;
-- Resolvida.
-
-As cores poderão ser utilizadas para facilitar a identificação visual:
-
-- 🟢 Resolvida;
-- 🟡 Em análise;
-- 🔴 Não concluída.
+    Q --> T([Fim])
+    S --> T
