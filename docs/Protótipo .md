@@ -6,7 +6,7 @@ Este documento reúne o **Diagrama de Fluxo com Regras de Negócio**, o **Modelo
 
 ---
 
-## Diagrama de Fluxo do Processo Principal (Visão Geral)
+## 0. Diagrama de Fluxo do Processo Principal (Visão Geral)
 
 O fluxo abaixo representa o caminho completo de uma ocorrência, desde o registro pelo usuário até a resolução final, incluindo pontos de decisão, validações, aprovações e retornos (loops de correção/acompanhamento). Este é o diagrama "macro" — a seção seguinte detalha cada uma dessas etapas passo a passo.
 
@@ -53,11 +53,14 @@ flowchart TD
 | RN08 | A identidade do usuário anônimo nunca é exposta à administração durante o processo. |
 | RN09 | O status **Resolvida** só pode ser atribuído após o registro da providência que solucionou o problema. |
 
+---
 
 ## 1. Diagrama de Fluxo Detalhado (Passo a Passo)
 
 Este segundo diagrama "abre" cada etapa do fluxo macro em ações menores e mais concretas — o tipo de detalhamento que ajuda na hora de desenhar as telas e as validações do sistema.
 
+```mermaid
+flowchart TD
     A0[Início: usuário acessa o sistema] --> A1{Já possui cadastro?}
     A1 -->|Não, e quer se identificar| A2[Cadastro rápido: nome, e-mail, perfil]
     A1 -->|Sim, faz login| A3[Login]
@@ -97,11 +100,13 @@ Este segundo diagrama "abre" cada etapa do fluxo macro em ações menores e mais
     A23 --> A31[Sistema notifica encerramento]
     A30 --> A31
     A31 --> A32[Fim]
+```
 
-
+---
 
 ## 2. Modelo de Banco de Dados (Diagrama ER)
 
+```mermaid
 erDiagram
     USUARIO ||--o{ OCORRENCIA : registra
     CATEGORIA ||--o{ OCORRENCIA : classifica
@@ -236,3 +241,4 @@ stateDiagram-v2
     EmProvidencia: Em providência
     Arquivada: Arquivada
     Resolvida: Resolvida
+```
