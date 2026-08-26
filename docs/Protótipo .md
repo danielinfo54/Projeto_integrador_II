@@ -53,7 +53,6 @@ flowchart TD
 | RN08 | A identidade do usuário anônimo nunca é exposta à administração durante o processo. |
 | RN09 | O status **Resolvida** só pode ser atribuído após o registro da providência que solucionou o problema. |
 
----
 
 ## 1. Diagrama de Fluxo Detalhado (Passo a Passo)
 
