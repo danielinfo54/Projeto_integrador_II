@@ -1,6 +1,6 @@
 # Arquitetura do Sistema
 
-## Sistema de Denúncias e Ocorrências Escolares — Etapa 2
+## Sistema de Denúncias e Ocorrências Escolares
 
 Este documento reúne o **Diagrama de Fluxo com Regras de Negócio**, o **Modelo de Banco de Dados (ER)** e a **Estrutura de Pastas** do repositório, servindo como base para a fase de modelagem e desenvolvimento do sistema.
 
