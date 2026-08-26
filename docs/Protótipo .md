@@ -181,47 +181,9 @@ erDiagram
 - Um **administrador** pode executar **várias providências** (1:N).
 
 ---
-
-## 3. Diagrama de Sequência (Interação entre Usuário, Sistema e Administração)
-
-Enquanto o fluxograma mostra o *processo* como um todo, o diagrama de sequência mostra *quem troca mensagens com quem* e em que ordem, deixando mais claro o papel de cada participante (Usuário, Sistema e Administração) durante o ciclo de vida de uma ocorrência.
-
-```mermaid
-sequenceDiagram
-    actor U as Usuário
-    participant S as Sistema
-    actor Adm as Administração
-
-    U->>S: Acessa o sistema
-    U->>S: Escolhe relato (identificado/anônimo)
-    U->>S: Preenche categoria, localização e descrição
-    S->>S: Valida dados obrigatórios
-    alt Dados inválidos
-        S-->>U: Solicita correção
-        U->>S: Reenvia dados corrigidos
-    end
-    S->>S: Registra data automaticamente
-    S->>Adm: Notifica nova ocorrência (Status: Recebida)
-    Adm->>S: Consulta detalhes da ocorrência
-    Adm->>S: Registra análise (Status: Em análise)
-    alt Ocorrência não procede
-        Adm->>S: Registra arquivamento (Status: Arquivada)
-        S-->>U: Notifica encerramento
-    else Ocorrência procede
-        Adm->>S: Define providência (Status: Em providência)
-        loop Até resolver
-            Adm->>S: Atualiza providência
-        end
-        Adm->>S: Registra resolução (Status: Resolvida)
-        S-->>U: Notifica resolução da ocorrência
-    end
-```
-
-**Explicação:** o diagrama deixa explícito que o Usuário só interage diretamente com o Sistema (nunca com a Administração), o que reforça a regra de preservação do anonimato (RN08). A Administração também só enxerga a ocorrência através do Sistema, nunca dados de identificação quando o relato é anônimo. Os blocos `alt` representam decisões (dados inválidos, ocorrência procede ou não) e o bloco `loop` representa o retorno/acompanhamento até a resolução — os mesmos pontos de decisão do fluxograma, agora vistos pela ótica da comunicação entre os atores.
-
 ---
 
-## 4. Diagrama de Estados da Ocorrência
+## 3. Diagrama de Estados da Ocorrência
 
 Como o status é o elemento central de acompanhamento do sistema, um diagrama de estados ajuda a visualizar exatamente quais transições são permitidas — evitando, por exemplo, que uma ocorrência "pule" de Recebida direto para Resolvida sem passar pela análise.
 
