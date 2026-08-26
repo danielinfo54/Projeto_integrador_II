@@ -16,8 +16,6 @@ O sistema permitirá o registro de ocorrências de forma identificada ou anônim
 
 O processo principal começa com o registro de uma ocorrência pelo usuário. Após o preenchimento das informações, a ocorrência é enviada para análise da administração escolar.
 
-```mermaid
-flowchart TD
     A([Início]) --> B[Usuário acessa o sistema]
     B --> C[Registrar ocorrência]
 
