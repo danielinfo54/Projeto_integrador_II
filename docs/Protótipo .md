@@ -6,7 +6,7 @@ Este documento reúne o **Diagrama de Fluxo com Regras de Negócio**, o **Modelo
 
 ---
 
-## 0. Diagrama de Fluxo do Processo Principal (Visão Geral)
+## Diagrama de Fluxo do Processo Principal (Visão Geral)
 
 O fluxo abaixo representa o caminho completo de uma ocorrência, desde o registro pelo usuário até a resolução final, incluindo pontos de decisão, validações, aprovações e retornos (loops de correção/acompanhamento). Este é o diagrama "macro" — a seção seguinte detalha cada uma dessas etapas passo a passo.
 
@@ -100,51 +100,8 @@ flowchart TD
     A23 --> A31[Sistema notifica encerramento]
     A30 --> A31
     A31 --> A32[Fim]
-```
 
-### Explicação passo a passo
 
-**Fase 1 — Acesso e identificação (A0 a A4)**
-1. **A0 — Início:** o usuário entra no sistema (site ou app).
-2. **A1 — Verificação de cadastro:** o sistema pergunta se o usuário já tem cadastro, pois só faz sentido pedir login/cadastro para quem vai se identificar.
-3. **A2 — Cadastro rápido:** caminho de quem quer se identificar e ainda não tem conta — coleta apenas o essencial (nome, e-mail, perfil: aluno/professor/funcionário).
-4. **A3 — Login:** caminho de quem já tem cadastro e quer se identificar.
-5. **A4 — Anônimo:** caminho de quem prefere não se identificar; pula direto para o formulário, sem coletar nenhum dado pessoal (regra RN08).
-
-**Fase 2 — Preenchimento e validação (A5 a A11)**
-6. **A5 — Formulário de ocorrência:** ponto de encontro dos três caminhos anteriores; todos chegam ao mesmo formulário.
-7. **A6 — Categoria:** o usuário escolhe uma das 6 categorias definidas (Estrutura, Segurança, Limpeza, Equipamentos, Situações inadequadas, Outros).
-8. **A7 — Localização:** especifica onde o problema ocorre (ex.: "Bloco B, sala 12").
-9. **A8 — Descrição:** campo de texto livre para detalhar a situação.
-10. **A9 — Data automática:** o sistema registra o momento do relato sem intervenção do usuário (regra RN03).
-11. **A10 — Validação:** o sistema confere se categoria, localização e descrição foram preenchidos.
-12. **A11 — Correção:** se algo estiver faltando, o sistema aponta os campos pendentes e devolve o usuário à etapa A6, sem apagar o que já foi digitado.
-
-**Fase 3 — Revisão e envio (A12 a A16)**
-13. **A12 — Revisão:** antes de enviar, o usuário vê um resumo de tudo o que preencheu.
-14. **A13 — Confirmação:** o usuário decide se envia ou volta para editar algo.
-15. **A14 — Protocolo:** ao confirmar, o sistema gera um número/ID único para a ocorrência, usado depois para consulta e acompanhamento.
-16. **A15 — Status "Recebida":** o registro entra oficialmente no sistema.
-17. **A16 — Notificação:** a administração é avisada de que há uma nova ocorrência para analisar.
-
-**Fase 4 — Análise administrativa (A17 a A23)**
-18. **A17 — Abertura:** a administração acessa a ocorrência na área administrativa.
-19. **A18 — Status "Em análise":** o status muda assim que alguém começa a avaliar o caso.
-20. **A19 — Checagem de completude:** a administração avalia se as informações bastam para decidir o que fazer.
-21. **A20 — Pedido de mais detalhes:** se faltar contexto, isso fica registrado como observação (o caso permanece "Em análise" — não retorna ao usuário automaticamente, pois pode ser anônimo).
-22. **A21 — Procedência:** decisão central: a situação relatada é real e cabe à escola resolver?
-23. **A22/A23 — Arquivamento:** se não procede, a administração justifica e o status muda para "Arquivada".
-
-**Fase 5 — Providência e resolução (A24 a A32)**
-24. **A24 — Definição de ação:** se procede, define-se quem é o responsável e o que será feito.
-25. **A25 — Status "Em providência":** marca que uma ação está em andamento.
-26. **A26 — Execução:** o responsável realmente executa a ação combinada.
-27. **A27 — Verificação de resultado:** avalia-se se o problema foi de fato solucionado.
-28. **A28 — Novo ajuste:** se não foi suficiente, registra-se uma nova providência e o ciclo A26-A27 se repete (é o "loop de acompanhamento" também visto no diagrama de estados).
-29. **A29/A30 — Resolução:** quando o problema é resolvido, a solução é descrita e o status muda para "Resolvida".
-30. **A31/A32 — Encerramento:** tanto ocorrências arquivadas quanto resolvidas geram uma notificação final de encerramento, e o processo termina.
-
----
 
 ## 2. Modelo de Banco de Dados (Diagrama ER)
 
@@ -283,8 +240,3 @@ stateDiagram-v2
     EmProvidencia: Em providência
     Arquivada: Arquivada
     Resolvida: Resolvida
-```
-
-**Explicação:** cada estado corresponde a um valor possível do campo `status` na entidade OCORRENCIA. As setas mostram as únicas transições válidas: uma ocorrência sempre nasce como **Recebida**, precisa passar por **Em análise** antes de seguir para **Arquivada** ou **Em providência**, e só chega a **Resolvida** depois de pelo menos uma providência registrada. A auto-transição em **Em providência** representa o loop de acompanhamento (podem existir várias providências antes da resolução), e é justamente esse histórico de transições que a entidade STATUS_HISTORICO armazena no banco de dados.
-
----
