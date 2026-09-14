@@ -39,7 +39,7 @@ Criar um sistema que permita registrar ocorrências e problemas encontrados na e
 - Registro das providências tomadas;
 - Registro da resolução da ocorrência.
 
-### Categorias de ocorrências
+### Categoria de ocorrências
 
 As ocorrências poderão ser classificadas em categorias, como:
 
