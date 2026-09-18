@@ -1,1 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sistema de Denúncias e Ocorrências Escolares — Protótipo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
 
+<header class="letterhead">
+  <div class="letterhead-top">
+    <div class="seal">SD</div>
+    <div class="letterhead-title">
+      <h1>Sistema de Denúncias e Ocorrências Escolares</h1>
+      <p>Escola Técnica — canal de registro e acompanhamento de ocorrências</p>
+    </div>
+  </div>
+  <nav class="tabs">
+    <button class="active" data-view="registrar">Registrar Ocorrência</button>
+    <button data-view="acompanhar">Acompanhar Ocorrência</button>
+    <button data-view="admin">Área Administrativa</button>
+  </nav>
+</header>
+
+<main>
+
+  <!-- VIEW: REGISTRAR -->
+  <section class="view active" id="view-registrar">
+    <div class="dossie">
+      <h2 style="font-size:17px;">Novo registro</h2>
+      <p class="helper">Preencha as informações abaixo. Você pode escolher se identificar ou permanecer anônimo — sua escolha não afeta a análise do caso.</p>
+
+      <label>Tipo de relato</label>
+      <div class="segmented" id="tipoRelato">
+        <button type="button" class="active" data-tipo="anonimo">Anônimo</button>
+        <button type="button" data-tipo="identificado">Identificado</button>
+      </div>
+
+      <div id="camposIdentificacao" style="display:none;">
+        <label for="nome">Nome</label>
+        <input type="text" id="nome" placeholder="Seu nome completo">
+        <label for="perfil">Perfil</label>
+        <select id="perfil">
+          <option>Aluno</option>
+          <option>Professor</option>
+          <option>Funcionário</option>
+        </select>
+      </div>
+
+      <label for="categoria">Categoria</label>
+      <select id="categoria">
+        <option value="Estrutura e infraestrutura">Estrutura e infraestrutura</option>
+        <option value="Segurança">Segurança</option>
+        <option value="Limpeza e conservação">Limpeza e conservação</option>
+        <option value="Equipamentos">Equipamentos</option>
+        <option value="Situações inadequadas">Situações inadequadas</option>
+        <option value="Outros">Outros</option>
+      </select>
+
+      <label for="local">Localização</label>
+      <input type="text" id="local" placeholder="Ex: Bloco B, laboratório de informática">
+
+      <label for="descricao">Descrição da situação</label>
+      <textarea id="descricao" placeholder="Descreva o que aconteceu, com o máximo de detalhes possível."></textarea>
+
+      <button class="btn-primary" onclick="registrarOcorrencia()">Enviar ocorrência</button>
+
+      <div class="protocolo-box" id="resultadoProtocolo" style="display:none;">
+        <div class="helper">Ocorrência registrada com sucesso</div>
+        <div class="num mono" id="numProtocoloGerado"></div>
+        <div class="helper">Guarde este número para acompanhar o andamento na aba "Acompanhar Ocorrência".</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VIEW: ACOMPANHAR -->
+  <section class="view" id="view-acompanhar">
+    <div class="dossie">
+      <h2 style="font-size:17px;">Consultar andamento</h2>
+      <p class="helper">Informe o número de protocolo recebido no momento do registro.</p>
+      <label for="buscaProtocolo">Número de protocolo</label>
+      <input type="text" id="buscaProtocolo" class="mono" placeholder="Ex: OCR-2026-0001">
+      <button class="btn-primary" onclick="buscarOcorrencia()">Consultar</button>
+
+      <div id="resultadoBusca" style="margin-top:26px;"></div>
+    </div>
+  </section>
+
+  <!-- VIEW: ADMIN -->
+  <section class="view" id="view-admin">
+    <div class="dossie" id="adminLogin">
+      <h2 style="font-size:17px;">Acesso restrito</h2>
+      <p class="helper">Esta área é reservada à administração da escola. Informe a senha de acesso para continuar. <em>(Senha de demonstração: admin123)</em></p>
+      <label for="senhaAdmin">Senha</label>
+      <input type="password" id="senhaAdmin" placeholder="Digite a senha">
+      <button class="btn-primary" onclick="tentarLoginAdmin()">Entrar</button>
+      <p class="helper" id="erroLoginAdmin" style="color:var(--red); display:none;">Senha incorreta. Tente novamente.</p>
+    </div>
+
+    <div id="adminConteudo" style="display:none;">
+      <div class="dossie">
+        <h2 style="font-size:17px;">Ocorrências registradas</h2>
+        <p class="helper">Selecione uma ocorrência para analisar, definir providências ou registrar a resolução.</p>
+        <table>
+          <thead>
+            <tr><th>Protocolo</th><th>Categoria</th><th>Local</th><th>Relato</th><th>Status</th></tr>
+          </thead>
+          <tbody id="tabelaOcorrencias"></tbody>
+        </table>
+      </div>
+
+      <div class="dossie" id="painelDetalhe" style="display:none;"></div>
+    </div>
+  </section>
+
+</main>
+
+<script type="module" src="script.js"></script>
+</body>
+</html>
